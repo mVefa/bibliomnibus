@@ -1,17 +1,17 @@
 [
   {
-  "id": "roma-mitolojisi-dougherty",
+  "id": "roma-mitolojisi-martin-j-dougherty",
   "title": "Roma Mitolojisi",
   "author": "Martin J. Dougherty",
-  "publisher": "Kronik Kitap",
+  "publisher": "KRONİK KİTAP",
   "videoTitle": "Çağ Kapayıp Çağ Açan Fetih: Askeri Devrim, Coğrafi Keşifler, Rönesans",
-  "videoId": "j7oghcpzXwA",
-  "timestamp": "11:10",
-  "videoUrl": "https://youtu.be/j7oghcpzXwA?t=670",
-  "bookUrl": "https://www.kitapyurdu.com/kitap/roma-mitolojisi/749204.html",
-  "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12197135/wh:e8d0b659a/miw:200/mih:200",
-  "dateAdded": "2026-04-15"
-  },
+  "videoDate": "2026-04-15",
+  "youtubeId": "j7oghcpzXwA",
+  "startTimestamp": 670,
+  "endTimestamp": 715,
+  "coverImage": "https://img.kitapyurdu.com/v1/getImage/fn:12197135/wh:e8d0b659a/miw:200/mih:200",
+  "purchaseLink": "https://www.kitapyurdu.com/kitap/roma-mitolojisi/749204.html"
+},
   {
     "id": "orta-avrupada-osmanlilar-macarlar-ve-habsburglar",
     "title": "Orta Avrupa'da Osmanlılar Macarlar ve Habsburglar",
