@@ -1,5 +1,18 @@
 [
   {
+  "id": "hacilar-ve-sultanlar-suraiya-faroqhi",
+  "title": "Hacılar ve Sultanlar",
+  "author": "Suraiya Faroqhi",
+  "publisher": "ALFA YAYINLARI",
+  "videoTitle": "Kadın Karakterlere Güçlü Hikayeler Yazılmıyor",
+  "videoDate": "2026-04-24",
+  "youtubeId": "75TrZtet5HM",
+  "startTimestamp": 2733,
+  "endTimestamp": 2780,
+  "coverImage": "https://img.kitapyurdu.com/v1/getImage/fn:11843422/wh:55a426379/miw:200/mih:200",
+  "purchaseLink": "https://www.kitapyurdu.com/kitap/hacilar-ve-sultanlar-osmanli-doneminde-hac-15171638/673565.html"
+  },
+  {
   "id": "roma-mitolojisi-martin-j-dougherty",
   "title": "Roma Mitolojisi",
   "author": "Martin J. Dougherty",
@@ -11,7 +24,7 @@
   "endTimestamp": 715,
   "coverImage": "https://img.kitapyurdu.com/v1/getImage/fn:12197135/wh:e8d0b659a/miw:200/mih:200",
   "purchaseLink": "https://www.kitapyurdu.com/kitap/roma-mitolojisi/749204.html"
-},
+  },
   {
     "id": "orta-avrupada-osmanlilar-macarlar-ve-habsburglar",
     "title": "Orta Avrupa'da Osmanlılar Macarlar ve Habsburglar",
