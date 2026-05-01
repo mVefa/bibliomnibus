@@ -2,37 +2,43 @@ import { useState, useEffect, useCallback } from 'react';
 import { YouTubeSVG, ExternalLinkIcon, PersonIcon, BookOpenIcon } from './Icons';
 import { InitialsFallback } from './BookCard';
 
-// Saniyeyi "m:ss" veya "h:mm:ss" formatına çevirir
+// YouTube ID validasyonu: 11 karakter, alfanumerik + - ve _
+const isValidYouTubeId = (id) => /^[a-zA-Z0-9_-]{11}$/.test(id);
+
+// Saniyeyi "m:ss" veya "h:mm:ss" formatına çevirir (geçersiz değer → null)
 function formatTime(seconds) {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = seconds % 60;
-  if (h > 0) return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-  return `${m}:${String(s).padStart(2, '0')}`;
+  const s = typeof seconds === 'number' ? seconds : parseInt(seconds, 10);
+  if (isNaN(s) || s < 0) return null;
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  if (h > 0) return `${h}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+  return `${m}:${String(sec).padStart(2, '0')}`;
 }
 
 export default function BookModal({ book, onClose }) {
   // ESC tuşuyla kapatma + body scroll kilidi
   useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
     const handler = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', handler);
     document.body.style.overflow = 'hidden';
     return () => {
       document.removeEventListener('keydown', handler);
-      document.body.style.overflow = '';
+      document.body.style.overflow = originalOverflow || '';
     };
-  }, [onClose]);
+  }, []);
 
   const [imgError, setImgError] = useState(false);
 
-  // autoplay=1 — start/end parametreleriyle tam aralıktan başlatır
-  const embedSrc = book.youtubeId
+  // YouTube ID validasyonu + autoplay URL oluştur
+  const embedSrc = book.youtubeId && isValidYouTubeId(book.youtubeId)
     ? `https://www.youtube.com/embed/${book.youtubeId}?` +
       new URLSearchParams({
-        ...(book.startTimestamp && { start: book.startTimestamp }),
-        ...(book.endTimestamp   && { end:   book.endTimestamp }),
+        ...(book.startTimestamp !== undefined && { start: String(book.startTimestamp) }),
+        ...(book.endTimestamp !== undefined && { end: String(book.endTimestamp) }),
         autoplay: 1,
-        rel:      0,
+        rel: 0,
         modestbranding: 1,
       }).toString()
     : null;
@@ -108,7 +114,7 @@ export default function BookModal({ book, onClose }) {
                           })}
                         </p>
                       )}
-                      {book.startTimestamp && book.endTimestamp && (
+                      {book.startTimestamp !== undefined && book.endTimestamp !== undefined && (
                         <p className="text-gray-700 text-xs font-mono">
                           {formatTime(book.startTimestamp)} – {formatTime(book.endTimestamp)}
                         </p>
@@ -159,7 +165,7 @@ export default function BookModal({ book, onClose }) {
             </div>
 
             {/* Video referansı zaman bilgisi */}
-            {book.startTimestamp && book.endTimestamp && (
+            {book.startTimestamp !== undefined && book.endTimestamp !== undefined && (
               <div className="flex items-center gap-3 bg-gray-800/50 border border-gray-700/40 rounded-2xl px-4 py-3">
                 <div className="w-8 h-8 rounded-full bg-red-600/20 flex items-center justify-center shrink-0">
                   <YouTubeSVG className="w-4 h-4 text-red-500" />

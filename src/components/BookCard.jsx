@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { PlaceholderBookIcon } from './Icons';
 
 // ── Kapak resmi yüklenemeyince kitap ID'sine göre seçilen gradient paleti
@@ -40,7 +40,7 @@ export function InitialsFallback({ title, className = '' }) {
 }
 
 // ── Kitap Kartı (sade: kapak + başlık + yazar)
-export default function BookCard({ book, onClick }) {
+const BookCard = memo(function BookCard({ book, onClick }) {
   const [imgError, setImgError] = useState(false);
   const fallbackClass = getFallbackGradient(book.id);
 
@@ -49,14 +49,14 @@ export default function BookCard({ book, onClick }) {
       className="group relative flex flex-col bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
       onClick={onClick}
     >
-      {/* ─ Kapak Resmi — sabit 2:3 oranı */}
+      {/* ─ Kapak Resmi — sabit 2:3 oranı, CLS önlenmiş */}
       <div className="relative overflow-hidden" style={{ aspectRatio: '2/3' }}>
         {!imgError ? (
           <img
             src={book.coverImage}
             alt={book.title}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={() => setImgError(true)}
           />
         ) : (
@@ -83,4 +83,6 @@ export default function BookCard({ book, onClick }) {
       </div>
     </div>
   );
-}
+});
+
+export default BookCard;
