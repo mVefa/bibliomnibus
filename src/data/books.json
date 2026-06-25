@@ -1,5 +1,31 @@
 [
   {
+  "id": "mekanin-kaderi-edward-s-casey",
+  "title": "Mekanın Kaderi",
+  "author": "Edward S. Casey",
+  "publisher": "RUNİK KİTAP",
+  "videoTitle": "Shakespeare'in Yası: Hamnet",
+  "videoDate": "2026-06-25",
+  "youtubeId": "aPm1BERF9nI",
+  "startTimestamp": 1755,
+  "endTimestamp": 1808,
+  "coverImage": "https://img.kitapyurdu.com/v1/getImage/fn:12156227/wh:accc3d86c/miw:200/mih:200",
+  "purchaseLink": "https://www.kitapyurdu.com/kitap/mekanin-kaderi-felsefi-bir-tarih/741744.html"
+  },
+  {
+  "id": "ipek-yolu-peter-frankopan",
+  "title": "İpek Yolu",
+  "author": "Peter Frankopan",
+  "publisher": "PEGASUS YAYINLARI",
+  "videoTitle": "Orta Asya Bozkırlarında Göçebe Türkler",
+  "videoDate": "2026-06-21",
+  "youtubeId": "4FoOuKhDUnM",
+  "startTimestamp": 3713,
+  "endTimestamp": 3749,
+  "coverImage": "https://img.kitapyurdu.com/v1/getImage/fn:5184403/wh:4b35fc35a/miw:200/mih:200",
+  "purchaseLink": "https://www.kitapyurdu.com/kitap/ipek-yolu/447712.html"
+  },
+  {
   "id": "napoleon-andrew-roberts",
   "title": "Napoleon",
   "author": "Andrew Roberts",
